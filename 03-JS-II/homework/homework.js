@@ -23,8 +23,8 @@ function conection(status) {
   //Cuando el estado es igual a 2, el usuario está "Away"
   //De lo contrario, presumimos que el usuario está "Offline"
   //Devolver el estado de conexión de usuario en cada uno de los casos.
-  if (status = 1) {return "Online"} 
-    else if (status = 2) {return "Away"}
+  if (status === 1) {return "Online"} 
+    else if (status === 2) {return "Away"}
     else {return "Offline"}
 }
 
@@ -55,19 +55,19 @@ function colors(color) {
   //Usar el statement Switch.
   switch (color) {
     case "blue":
-      text = "This is blue"
+      return"This is blue";
       break;
     case "red":
-      text = "This is red"
+      return "This is red";
       break;
     case "green":
-      text = "This is green"
+      return "This is green";
       break;
     case "orange":
-      text = "This is orange"
+      return "This is orange";
       break;
     default:
-      text = "Color not found";
+      return "Color not found";
     }
 }
 
@@ -119,21 +119,16 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
-  if (num1 > num2 && num1 > num3 && num1 > 0) {
-    return "Número 1 es mayor y positivo"
-  }
-  else if (num1 < 0 || num2 < 0 || num3 <0) {
-    return "Hay negativos"
-  }
-  else if (num3 > num1 && num3 > num2) {
-    return num3 + 1
-  }
+  if ( num1 < 0 || num2 < 0 || num3 < 0){
+    return "Hay negativos"}
   else if (num1 === 0 || num2 === 0 || num3 === 0) {
-    return "Error"
-  }
+    return "Error"  }  
+  else if (num1 > num2 && num1 > num3 && num1 > 0) {
+    return "Número 1 es mayor y positivo"  }
+  else if (num3 > num1 && num3 > num2) {
+    return num3 + 1  }
   else {
-    return false
-  }
+    return false  }
 }
 
 function esPrimo(numero) {
@@ -142,7 +137,10 @@ function esPrimo(numero) {
   // Pista: un número primo solo es divisible por sí mismo y por 1
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
-  return numero % numero === 0 && numero % 1 === 0 && numero != 1 && numero != 0
+  if (numero === 2) return true;
+  if (numero < 2) return false;
+  for (var i=2; i<numero; i++) {if (numero % i === 0){return false}}
+  return true
 }
 
 function esVerdadero(valor){
@@ -156,21 +154,21 @@ function esVerdadero(valor){
   }
 }
 
-function tablaDelSeis(x){
+function tablaDelSeis(i){
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí   
-  var x = -1
-  while (x < 60) {
-    console.log(x);
-    (x++)*6
+  let arrayTablaDel6 = []
+  for (let i = 0; i < 11; i++) {
+        arrayTablaDel6.push(6 * i)
   }
+  return arrayTablaDel6
 }
 
 function tieneTresDigitos(numero){
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código aquí
-  return numero % 1 === 0 && numero >= 100
+  return numero % 1 === 0 && numero >= 100 && numero < 1000;
 }
 
 function doWhile(numero) {
@@ -182,7 +180,8 @@ function doWhile(numero) {
   do {
     i = i + 1;
     x = x + 5;
-  } while (i <= 8);
+  } 
+  while (i < 8);
   return x;
 }
 
